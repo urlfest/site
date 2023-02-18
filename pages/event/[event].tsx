@@ -28,7 +28,7 @@ const Event: React.FC<{
             var count = div.textContent * 1 - 1;
             div.textContent = count;
             if (count <= 0) {
-                window.location.replace("${event.link}");
+                window.location.replace("${event.redirect}");
             }
         }, 1000);
 
@@ -38,8 +38,8 @@ const Event: React.FC<{
 
       <p id="counter">5</p>
       <h1 className={styles.subtitle}>Redirecting to</h1>
-      <Link href={event.link}>
-        <a className={styles.title}>{event.link.replace("https://", "")}</a>
+      <Link href={event.redirect}>
+        <a className={styles.title}>{event.redirect.replace("https://", "")}</a>
       </Link>
     </div>
   );

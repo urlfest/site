@@ -5,7 +5,7 @@ export default async function getEvents() {
   try {
     const events = await db.fetch()
     delete events.last
-    return events 
+    return events
   } catch (error) {
     console.error("getEvents", error)
     throw new Error(error)

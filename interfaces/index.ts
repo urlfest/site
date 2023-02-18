@@ -1,6 +1,6 @@
 export type Event = {
   id: number
-  link: string
+  redirect: string
   slug: string
 }
 

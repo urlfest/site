@@ -17,7 +17,10 @@ export default function middleware(req: NextRequest) {
     return NextResponse.next();
 
   if (!url.pathname.includes(".") || !url.pathname.includes("/api") || !url.pathname.includes('_next')) {
-    url.pathname = `/_sites/${hostname}${url.pathname}`;
-    return NextResponse.rewrite(`http://${Domain.domain}/event/${currentHost}`);
+    //   //   url.pathname = `/_sites/${hostname}${url.pathname}`;
+    if (Domain.domain == "implant.cam" && currentHost == "urlfest.cortex") return
+    if (Domain.domain == "implant.cam" && currentHost == "party.cortex") return NextResponse.rewrite(`https://urlfest.cortex.implant.cam/event/${currentHost}`);
+
+    else return NextResponse.rewrite(`http://${Domain.domain}/event/${currentHost}`);
   }
 }
